@@ -5,12 +5,17 @@ using UnityEngine.UI;
 
 public class PlayerLifes : MonoBehaviour
 {
-    //Vida m�xima y vida actual
+    //Vida maxima y vida actual
     public int maxHealth, currentHealth;
+    //Tiempo de invencibilidad
     public float invincibleLength = 1f;
+    //Contador de invencibilidad
     private float invincibleCounter;
+    //Lista de vidas del jugador
     public GameObject[] lifes;
+    //Evento
     [SerializeField] Event charDead;
+    //GameManager para acceder desde otros scripts
     GameManager _gameManager;
 
     //private void Awake()
@@ -23,10 +28,14 @@ public class PlayerLifes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         _gameManager = GameManager.Singleton;
+        
         currentHealth = maxHealth;
+        //Si no hay un texto de vida
         if (_gameManager.numberlifes.healthText != null)
         {
+            //Accede a ese texto
             _gameManager.numberlifes.healthText.text = currentHealth.ToString();
         }
         
@@ -35,8 +44,10 @@ public class PlayerLifes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (invincibleCounter > 0)
         {
+            //Empieza a reducirse el tiempo
             invincibleCounter -= Time.deltaTime;
         }
 
