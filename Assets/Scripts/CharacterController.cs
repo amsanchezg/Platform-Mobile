@@ -75,6 +75,7 @@ public class CharacterController : MonoBehaviour
 
     void Move()
     {
+        //Movimiento del jugador
         float Horizontal = SimpleInput.GetAxis("Horizontal");
         float Vertical = SimpleInput.GetAxis("Vertical");
         Vector3 PlayerInput = new Vector3(-Vertical, 0f, Horizontal);
@@ -134,6 +135,7 @@ public class CharacterController : MonoBehaviour
             anim.SetBool("isInRope", true);
             rb.useGravity = false;
             rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+            //El jugador se hace hijo del objeto con el que choca, en este caso, la liana
             gameObject.transform.parent = lianaToGet.transform;
             gameObject.transform.position = lianaToGet.transform.position;
             gameObject.transform.rotation = lianaToGet.transform.rotation;
@@ -146,6 +148,7 @@ public class CharacterController : MonoBehaviour
     {
         anim.SetBool("isInRope", false);
         rb.constraints = RigidbodyConstraints.None;
+        //Desparento al jugador de la liana
         transform.parent = null;
         rb.useGravity = true;
         estaEnLiana = false;
