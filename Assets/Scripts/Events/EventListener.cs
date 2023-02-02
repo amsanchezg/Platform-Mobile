@@ -12,8 +12,7 @@ public class EventListener : MonoBehaviour
 {
     //Donde está el evento
     public Event gEvent;
-    public Event victoryEvent;
-    public Event dieEvent;
+    
     //Donde queremos que esté la respuesta al evento
     public UnityGameObjectEvent response = new UnityGameObjectEvent();
 

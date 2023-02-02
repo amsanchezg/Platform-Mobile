@@ -11,6 +11,7 @@ public class Goal : MonoBehaviour
     public int levelToUnlock;
     int numberOfUnlockedLevels;
     [SerializeField] Event victoryAnim;
+    
     private void Awake()
     {
         coinsManager = FindObjectOfType<CoinsManager>();
@@ -22,12 +23,18 @@ public class Goal : MonoBehaviour
         StartCoroutine(CambioEscena());
 
     }
+
+    public void VictoryEvent()
+    {
+        StartCoroutine(Victory());
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             victoryAnim.Ocurred(this.gameObject);
             numberOfUnlockedLevels = PlayerPrefs.GetInt("levelsUnlocked");
+            VictoryEvent();
             coinsManager.GuardarMonedas();
             if (numberOfUnlockedLevels <= levelToUnlock)
             {
@@ -49,7 +56,7 @@ public class Goal : MonoBehaviour
     {
         GameManager.Singleton.Sounds.EndMusic();
         GameManager.Singleton.Sounds.VictorySound();
-        
+        GameManager.Singleton.Nulify();
         //GameManager.Singleton.charController.anim.SetTrigger("Goal");
         GameManager.Singleton.charController.speed = 0;
         GameManager.Singleton.charController.rotationSpeed = 0;

@@ -63,6 +63,7 @@ MonoBehaviour:
   escena: MainMenu
   textGoal: {fileID: 0}
   levelToUnlock: 2
+  victoryAnim: {fileID: 11400000, guid: 518709de454ba7444bdeb610ba47ad2e, type: 2}
 --- !u!1 &6307630354874302798
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 3b4b960c781bb2c49904e05a84fb662d
   - enabled: 1
-    path: Assets/Scenes/TestArea.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Nivel1.unity
+    guid: 7e2f231c58910384db119a0ddf9346db
   - enabled: 1
     path: Assets/Scenes/PruebaLevel2.unity
     guid: 8447b5f9fa000a24885833aa485710a0
+  - enabled: 1
+    path: Assets/Scenes/TestArea.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

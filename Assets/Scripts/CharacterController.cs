@@ -18,8 +18,10 @@ public class CharacterController : MonoBehaviour
     [SerializeField] public GameObject lianaToGet;
     [SerializeField] public bool estaEnLiana;
     [SerializeField] public bool lianaCooldown;
-
+    [SerializeField] bool canMove;
     [SerializeField] public Animator anim;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -75,38 +77,36 @@ public class CharacterController : MonoBehaviour
 
     void Move()
     {
-        //Movimiento del jugador
-        float Horizontal = SimpleInput.GetAxis("Horizontal");
-        float Vertical = SimpleInput.GetAxis("Vertical");
-        Vector3 PlayerInput = new Vector3(-Vertical, 0f, Horizontal);
-        anim.SetFloat("isMoving", new Vector2(Horizontal, Vertical).magnitude);
-
-        PlayerInput.Normalize();
-        if (PlayerInput != Vector3.zero)
+        if (canMove)
         {
-            Quaternion toRotation = Quaternion.LookRotation(PlayerInput, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            //Movimiento del jugador
+            float Horizontal = SimpleInput.GetAxis("Horizontal");
+            float Vertical = SimpleInput.GetAxis("Vertical");
+            Vector3 PlayerInput = new Vector3(-Vertical, 0f, Horizontal);
+            anim.SetFloat("isMoving", new Vector2(Horizontal, Vertical).magnitude);
+
+            PlayerInput.Normalize();
+            if (PlayerInput != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(PlayerInput, Vector3.up);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            }
+            //Quaternion deltaRotation = Quaternion.Euler(EulerAngle * Time.fixedDeltaTime);
+            //rb.MoveRotation(rb.rotation * deltaRotation);
+
+            transform.Translate(PlayerInput * speed * Time.deltaTime, Space.World);
+
+
+
+            if ((SimpleInput.GetButton("Jump")) && isGrounded && canJump)
+            {
+                rb.velocity = Vector3.up * jump;
+                isGrounded = false;
+
+                anim.Play("Salto");
+                GameManager.Singleton.Sounds.JumpSound();
+            }
         }
-        //Quaternion deltaRotation = Quaternion.Euler(EulerAngle * Time.fixedDeltaTime);
-        //rb.MoveRotation(rb.rotation * deltaRotation);
-
-        transform.Translate(PlayerInput * speed * Time.deltaTime, Space.World);
-
-        
-        
-        if ((SimpleInput.GetButton("Jump")) && isGrounded && canJump)
-        {
-            rb.velocity = Vector3.up * jump;
-            isGrounded = false;
-            
-            anim.Play("Salto"); 
-            GameManager.Singleton.Sounds.JumpSound();
-        }
-
-        
-
-
-
     }
 
     public void DamageImpulse()
@@ -118,12 +118,17 @@ public class CharacterController : MonoBehaviour
     public void VictoryDance()
     {
         anim.SetTrigger("Goal");
+        
+        
     }
 
     public void Die()
     {
         anim.SetTrigger("Diying");
         rb.isKinematic = true;
+        canMove = false;
+        collider.enabled = false;
+        canJump = false;
         collider.isTrigger = true;
     }
 

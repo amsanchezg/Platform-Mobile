@@ -105,14 +105,7 @@ public class PlayerLifes : MonoBehaviour
     {
         GameManager.Singleton.damagePlayer.GetComponent<DamagePlayer>().enabled = false;
         GameManager.Singleton.damagePlayer.collider.isTrigger = false;
-        GameManager.Singleton.charController.speed = 0;
-        GameManager.Singleton.charController.collider.enabled = false;
-        GameManager.Singleton.charController.rotationSpeed = 0;
         GameManager.Singleton.Sounds.Die();
-        GameManager.Singleton.charController.canJump = false;
-        yield return new WaitForSeconds(1f);
-        GameManager.Singleton.charController.speed = 0;
-        GameManager.Singleton.charController.rotationSpeed = 0;
         yield return new WaitForSeconds(3);
         GameManager.Singleton.Sounds.EndMusic();
         GameManager.Singleton.numberlifes.losePanel.SetActive(true);

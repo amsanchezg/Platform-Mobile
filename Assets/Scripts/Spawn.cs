@@ -8,6 +8,7 @@ public class Spawn : MonoBehaviour
     //public float waitAfterDiying = 3f;
     //public Text loseText;
     // Start is called before the first frame update
+    [SerializeField] string levelToLoad;
     void Start()
     {
         
@@ -37,6 +38,6 @@ public class Spawn : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         GameManager.Singleton.Nulify();
         //Load again the active Scene
-        SceneManager.LoadScene("TestArea");
+        SceneManager.LoadScene(levelToLoad);
     }
 }
