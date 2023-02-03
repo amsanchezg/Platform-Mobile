@@ -9,6 +9,7 @@ public class LevelUnlockHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Desbloquea al empezar el juego el nivel 1
         if (!PlayerPrefs.HasKey("levelsUnlocked"))
         {
             PlayerPrefs.SetInt("levelsUnlocked", 1);
