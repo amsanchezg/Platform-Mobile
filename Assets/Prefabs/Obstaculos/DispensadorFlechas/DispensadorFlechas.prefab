@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2070ce16ea1a944abb9fab1abdc998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 1571637986781274153, guid: 24d661aaf68141b4393d0635574a8068, type: 3}
+  flecha: {fileID: 1571637986781274153, guid: 24d661aaf68141b4393d0635574a8068, type: 3}
   attackpoint: {fileID: 1710106450283812958}
   disparar: 0
   isActivo: 0

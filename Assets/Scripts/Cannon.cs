@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cannon : MonoBehaviour
 {
 
-    public GameObject ball;
+    public GameObject flecha;
     public Transform attackpoint;
     public bool disparar, isActivo;
     public float tiempoDisparo;
@@ -63,7 +63,7 @@ public class Cannon : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         if (isActivo)
         {
-            Instantiate(ball, attackpoint.position, attackpoint.rotation);
+            Instantiate(flecha, attackpoint.position, attackpoint.rotation);
             isActivo = false;
         }
         yield return new WaitForSeconds(0.4f);

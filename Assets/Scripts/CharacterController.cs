@@ -66,7 +66,7 @@ public class CharacterController : MonoBehaviour
                 speed = 6;
                 rotationSpeed = 1000;
                 Debug.Log("salta puerco");
-                anim.SetTrigger("Salto");
+                
                 rb.useGravity = true;
                 rb.AddForce(transform.forward * 20 * jump * 5);
                 StartCoroutine(CooldownLiana());
@@ -86,6 +86,7 @@ public class CharacterController : MonoBehaviour
             anim.SetFloat("isMoving", new Vector2(Horizontal, Vertical).magnitude);
 
             PlayerInput.Normalize();
+            //Rotacion del personaje
             if (PlayerInput != Vector3.zero)
             {
                 Quaternion toRotation = Quaternion.LookRotation(PlayerInput, Vector3.up);
@@ -169,6 +170,7 @@ public class CharacterController : MonoBehaviour
 
     IEnumerator DamagePlayerImpulse()
     {
+        anim.SetTrigger("Hurt");
         speed = 0;
         rb.AddForce(-transform.forward * 7 * (5 * 3) * 2);
         rb.velocity = Vector3.up * jump / 2;

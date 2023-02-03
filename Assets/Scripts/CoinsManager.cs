@@ -8,19 +8,16 @@ using UnityEngine.SceneManagement;
 
 public class CoinsManager : MonoBehaviour
 {
-    CoinsUI coinsUI;
+   
     public int monedasAContar;
     public int monedasActuales;
-    GameManager _gameManager;
+    
 
-    private void Awake()
-    {
-        coinsUI = FindObjectOfType<CoinsUI>();
-    }
+   
     public void ActualCoins(int valorMonedas)
    {
         monedasAContar += valorMonedas;
-        coinsUI.ActualizarNumeroMonedas();
+        GameManager.Singleton.coinsUI.ActualizarNumeroMonedas();
         
    }
 

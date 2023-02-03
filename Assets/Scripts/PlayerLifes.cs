@@ -78,14 +78,14 @@ public class PlayerLifes : MonoBehaviour
             }
             else if (currentHealth < 2)
             {
-                GameManager.Singleton.charController.anim.SetTrigger("Hurt");
+                
                 GameManager.Singleton.Sounds.Hurt();
                 currentHealth = 1;
                 lifes[1].gameObject.SetActive(false);
             }
             else if (currentHealth < 3)
             {
-                GameManager.Singleton.charController.anim.SetTrigger("Hurt");
+                
                 GameManager.Singleton.Sounds.Hurt();
                 currentHealth = 2;
                 lifes[0].gameObject.SetActive(false);
