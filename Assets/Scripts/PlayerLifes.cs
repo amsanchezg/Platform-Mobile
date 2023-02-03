@@ -101,6 +101,16 @@ public class PlayerLifes : MonoBehaviour
         
     }
 
+    public void DieInKillerZone()
+    {
+        charDead.Ocurred(this.gameObject);
+        currentHealth = 0;
+        lifes[2].gameObject.SetActive(false);
+        lifes[1].gameObject.SetActive(false);
+        lifes[0].gameObject.SetActive(false);
+        StartCoroutine(PlayerDie());
+    }
+
     IEnumerator PlayerDie()
     {
         GameManager.Singleton.damagePlayer.GetComponent<DamagePlayer>().enabled = false;

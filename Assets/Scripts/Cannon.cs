@@ -60,13 +60,13 @@ public class Cannon : MonoBehaviour
     {
         isActivo = true;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.4f);
         if (isActivo)
         {
             Instantiate(ball, attackpoint.position, attackpoint.rotation);
             isActivo = false;
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.4f);
 
 
 
