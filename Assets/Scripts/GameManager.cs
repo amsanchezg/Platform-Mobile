@@ -12,6 +12,10 @@ public class GameManager
     //Un accesor a la lista
     public PlayerLifes playerLifes { get { return _playerLifes; } }
 
+    private CameraFollow _cameraFollow;
+    public CameraFollow cameraFollow { get { return _cameraFollow; } }
+    
+
     private CharacterController _charController;
 
     public CharacterController charController { get { return _charController; } }
@@ -58,6 +62,7 @@ public class GameManager
                 instance._charController = GameObject.FindObjectOfType<CharacterController>();
                 instance._sounds = GameObject.FindObjectOfType<Sounds>();
                 instance._damagePlayer = GameObject.FindObjectOfType<DamagePlayer>();
+                instance._cameraFollow = GameObject.FindObjectOfType<CameraFollow>();
             }
             
             

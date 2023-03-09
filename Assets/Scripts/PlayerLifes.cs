@@ -113,6 +113,7 @@ public class PlayerLifes : MonoBehaviour
 
     IEnumerator PlayerDie()
     {
+        GameManager.Singleton.cameraFollow.target = null;
         GameManager.Singleton.damagePlayer.GetComponent<DamagePlayer>().enabled = false;
         GameManager.Singleton.damagePlayer.collider.isTrigger = false;
         GameManager.Singleton.Sounds.Die();

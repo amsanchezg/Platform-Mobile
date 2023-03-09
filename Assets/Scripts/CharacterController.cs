@@ -20,7 +20,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] public bool lianaCooldown;
     [SerializeField] bool canMove;
     [SerializeField] public Animator anim;
-
+    
     
     // Start is called before the first frame update
     void Start()
@@ -126,7 +126,7 @@ public class CharacterController : MonoBehaviour
     public void Die()
     {
         anim.SetTrigger("Diying");
-        rb.isKinematic = true;
+        //rb.isKinematic = true;
         canMove = false;
         collider.enabled = false;
         canJump = false;
