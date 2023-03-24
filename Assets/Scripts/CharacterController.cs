@@ -126,7 +126,7 @@ public class CharacterController : MonoBehaviour
     public void Die()
     {
         anim.SetTrigger("Diying");
-        //rb.isKinematic = true;
+        rb.isKinematic = true;
         canMove = false;
         collider.enabled = false;
         canJump = false;
