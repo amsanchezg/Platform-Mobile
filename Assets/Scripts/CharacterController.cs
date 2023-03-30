@@ -20,8 +20,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] public bool lianaCooldown;
     [SerializeField] bool canMove;
     [SerializeField] public Animator anim;
-    
-    
+    [SerializeField] Camera mainCamera;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,20 +82,22 @@ public class CharacterController : MonoBehaviour
             //Movimiento del jugador
             float Horizontal = SimpleInput.GetAxis("Horizontal");
             float Vertical = SimpleInput.GetAxis("Vertical");
-            Vector3 PlayerInput = new Vector3(-Vertical, 0f, Horizontal);
+            
+            Vector3 cameraForward = Vector3.Scale(mainCamera.transform.forward, new Vector3(1, 0, 1)).normalized;
+            Vector3 move = Vertical * cameraForward + Horizontal * mainCamera.transform.right;
             anim.SetFloat("isMoving", new Vector2(Horizontal, Vertical).magnitude);
 
-            PlayerInput.Normalize();
+            move.Normalize();
             //Rotacion del personaje
-            if (PlayerInput != Vector3.zero)
+            if (move != Vector3.zero)
             {
-                Quaternion toRotation = Quaternion.LookRotation(PlayerInput, Vector3.up);
+                Quaternion toRotation = Quaternion.LookRotation(move, Vector3.up);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             }
             //Quaternion deltaRotation = Quaternion.Euler(EulerAngle * Time.fixedDeltaTime);
             //rb.MoveRotation(rb.rotation * deltaRotation);
 
-            transform.Translate(PlayerInput * speed * Time.deltaTime, Space.World);
+            transform.Translate(move * speed * Time.deltaTime, Space.World);
 
 
 
