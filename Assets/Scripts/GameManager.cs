@@ -14,7 +14,9 @@ public class GameManager
 
     private CameraFollow _cameraFollow;
     public CameraFollow cameraFollow { get { return _cameraFollow; } }
-    
+
+    private Reloj _reloj;
+    public Reloj reloj { get { return _reloj; } }
 
     private CharacterController _charController;
 
@@ -63,6 +65,7 @@ public class GameManager
                 instance._sounds = GameObject.FindObjectOfType<Sounds>();
                 instance._damagePlayer = GameObject.FindObjectOfType<DamagePlayer>();
                 instance._cameraFollow = GameObject.FindObjectOfType<CameraFollow>();
+                instance._reloj = GameObject.FindObjectOfType<Reloj>();
             }
             
             
@@ -83,6 +86,7 @@ public class GameManager
         _charController = null;
         _sounds = null;
         _damagePlayer = null;
+        _reloj = null;
     }
 
     

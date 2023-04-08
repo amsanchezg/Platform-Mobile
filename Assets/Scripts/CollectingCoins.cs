@@ -13,6 +13,7 @@ public class CollectingCoins : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             pickUp.Ocurred(this.gameObject);
+            GameManager.Singleton.Sounds.CoinsSound();
             Instantiate(effect, transform.position, transform.rotation);
             if (gameObject != null)
             {

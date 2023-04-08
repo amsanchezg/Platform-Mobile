@@ -56,6 +56,7 @@ public class Goal : MonoBehaviour
     {
         GameManager.Singleton.Sounds.EndMusic();
         GameManager.Singleton.Sounds.VictorySound();
+        GameManager.Singleton.reloj.escalaDeTiempo = 0;
         GameManager.Singleton.Nulify();
         //GameManager.Singleton.charController.anim.SetTrigger("Goal");
         GameManager.Singleton.charController.speed = 0;

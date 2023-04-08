@@ -16,11 +16,14 @@ public class CharacterController : MonoBehaviour
     [SerializeField] public float playerHeight;
     [SerializeField] public GameObject colliderPersonaje;
     [SerializeField] public GameObject lianaToGet;
+    [SerializeField] public GameObject lianaToGet2;
+    [SerializeField] public GameObject lianaToGet3;
     [SerializeField] public bool estaEnLiana;
     [SerializeField] public bool lianaCooldown;
     [SerializeField] bool canMove;
     [SerializeField] public Animator anim;
     [SerializeField] Camera mainCamera;
+    [SerializeField] Event liana;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +58,7 @@ public class CharacterController : MonoBehaviour
         
     }
 
-    private void Liana()
+    public void Liana()
     {
         if (estaEnLiana)
         {
@@ -66,7 +69,7 @@ public class CharacterController : MonoBehaviour
                 speed = 6;
                 rotationSpeed = 1000;
                 Debug.Log("salta puerco");
-                
+                rb.constraints = RigidbodyConstraints.None;
                 rb.useGravity = true;
                 rb.AddForce(transform.forward * 20 * jump * 5);
                 StartCoroutine(CooldownLiana());
@@ -135,6 +138,7 @@ public class CharacterController : MonoBehaviour
         collider.isTrigger = true;
     }
 
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Liana") && !lianaCooldown)
@@ -149,6 +153,32 @@ public class CharacterController : MonoBehaviour
             gameObject.transform.rotation = lianaToGet.transform.rotation;
             estaEnLiana = true;
            
+        }
+        if (other.gameObject.CompareTag("Liana2") && !lianaCooldown)
+        {
+
+            anim.SetBool("isInRope", true);
+            rb.useGravity = false;
+            rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+            //El jugador se hace hijo del objeto con el que choca, en este caso, la liana
+            gameObject.transform.parent = lianaToGet2.transform;
+            gameObject.transform.position = lianaToGet2.transform.position;
+            gameObject.transform.rotation = lianaToGet2.transform.rotation;
+            estaEnLiana = true;
+
+        }
+        if (other.gameObject.CompareTag("Liana3") && !lianaCooldown)
+        {
+
+            anim.SetBool("isInRope", true);
+            rb.useGravity = false;
+            rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+            //El jugador se hace hijo del objeto con el que choca, en este caso, la liana
+            gameObject.transform.parent = lianaToGet3.transform;
+            gameObject.transform.position = lianaToGet3.transform.position;
+            gameObject.transform.rotation = lianaToGet3.transform.rotation;
+            estaEnLiana = true;
+
         }
     }
 

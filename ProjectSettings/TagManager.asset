@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Liana
+  - Music-AudioSource
+  - Liana2
+  - Liana3
   layers:
   - Default
   - TransparentFX
