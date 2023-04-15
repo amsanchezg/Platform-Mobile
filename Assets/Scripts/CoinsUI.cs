@@ -23,7 +23,8 @@ public class CoinsUI : MonoBehaviour
     }
     public void ActualizarNumeroMonedas()
     {
-        monedasActualesTexto.text = GameManager.Singleton.coins.monedasAContar.ToString("00");
+        monedasActualesTexto.text = GameManager.Singleton.coins.monedasActuales.ToString();
+        
         
     }
 }

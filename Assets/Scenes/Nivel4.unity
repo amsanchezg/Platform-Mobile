@@ -20510,7 +20510,7 @@ PrefabInstance:
     - target: {fileID: 6611505314605426934, guid: d593e2c060b9ea44a9db5cfd0e9a5c67,
         type: 3}
       propertyPath: levelToLoad
-      value: Nivel3
+      value: Nivel4
       objectReference: {fileID: 0}
     - target: {fileID: 6611505314605426935, guid: d593e2c060b9ea44a9db5cfd0e9a5c67,
         type: 3}
