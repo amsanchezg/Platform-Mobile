@@ -9056,7 +9056,7 @@ PrefabInstance:
     - target: {fileID: 3810192525455400478, guid: 2e6c22cb2fbc1ed469c96ed0b264e75e,
         type: 3}
       propertyPath: levelToUnlock
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4044773682299730428, guid: 2e6c22cb2fbc1ed469c96ed0b264e75e,
         type: 3}

@@ -12,14 +12,11 @@ public class CoinsManager : MonoBehaviour
     public int monedasAContar;
     public int monedasActuales;
 
-    public void Start()
-    {
-        monedasActuales = PlayerPrefs.GetInt("MonedasTotales", 500);
-    }
+ 
 
     public void ActualCoins(int valorMonedas)
    {
-        monedasAContar += valorMonedas;
+        monedasActuales += valorMonedas;
         GameManager.Singleton.coinsUI.ActualizarNumeroMonedas();
         
         
@@ -27,15 +24,15 @@ public class CoinsManager : MonoBehaviour
 
     public void GuardarMonedas()
     {
-        PlayerPrefs.SetInt("Monedas_" + SceneManager.GetActiveScene().name, monedasAContar);
-        int totales = PlayerPrefs.GetInt("MonedasTotales", 0);
-        PlayerPrefs.SetInt("MonedasTotales", totales += monedasAContar);
+        PlayerPrefs.SetInt("Monedas_" + SceneManager.GetActiveScene().name, monedasActuales);
+        int totales = PlayerPrefs.GetInt("MonedasTotales");
+        PlayerPrefs.SetInt("MonedasTotales", totales += monedasActuales);
     }
 
     public int TotalMonedas() 
     {
-        return PlayerPrefs.GetInt("MonedasTotales", 500);
         
+       return monedasActuales = PlayerPrefs.GetInt("MonedasTotales");
 
     }
 
@@ -45,6 +42,7 @@ public class CoinsManager : MonoBehaviour
         {
             monedasActuales -= monedasAQuitar;
             GameManager.Singleton.coinsUI.ActualizarNumeroMonedas();
+            
             return true;
             
         }

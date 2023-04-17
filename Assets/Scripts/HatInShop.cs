@@ -10,6 +10,10 @@ public class HatInShop : MonoBehaviour
     public bool isHatUnlocked;
     public TextMeshProUGUI textoBoton;
     public Image coinImage;
+
+
+    //mi manera
+    public int IDHat;
     private void Awake()
     {
 
@@ -29,6 +33,7 @@ public class HatInShop : MonoBehaviour
         else
         {
             hatObject.SetActive(false);
+            
         }
     }
     public void PulsamosBoton()
@@ -36,8 +41,12 @@ public class HatInShop : MonoBehaviour
         if (isHatUnlocked)
         {
             //equipamos
+            HatManager.IDEquipHat = IDHat;
             FindObjectOfType<HatManager>().EquipedHat(hatInfo);
             
+
+
+
         }
         else
         {

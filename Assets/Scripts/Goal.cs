@@ -36,6 +36,7 @@ public class Goal : MonoBehaviour
             numberOfUnlockedLevels = PlayerPrefs.GetInt("levelsUnlocked");
             VictoryEvent();
             coinsManager.GuardarMonedas();
+            coinsManager.TotalMonedas();
             if (numberOfUnlockedLevels <= levelToUnlock)
             {
                 PlayerPrefs.SetInt("levelsUnlocked", numberOfUnlockedLevels + 1);

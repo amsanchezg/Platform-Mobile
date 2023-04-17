@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class HatLoader : MonoBehaviour
 {
-    public GameObject player;
-    private void Awake()
+    public GameObject[] allHats;
+
+    private void Start()
     {
-        player = HatManager.equippedHat;
+        for (int i = 0; i < allHats.Length; i++)
+        {
+            allHats[i].SetActive(false);
+        }
+        allHats[HatManager.IDEquipHat].SetActive(true);
     }
 }
