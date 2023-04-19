@@ -28,6 +28,7 @@ public class UI : MonoBehaviour
 
     public void AumentarVida()
     {
+        
         GameManager.Singleton.playerLifes.currentHealth = GameManager.Singleton.playerLifes.currentHealth + 1;
         GameManager.Singleton.playerLifes.lifes[1].gameObject.SetActive(true);
         healthText.text = GameManager.Singleton.playerLifes.currentHealth.ToString();

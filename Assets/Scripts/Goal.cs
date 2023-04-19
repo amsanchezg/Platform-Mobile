@@ -36,7 +36,7 @@ public class Goal : MonoBehaviour
             numberOfUnlockedLevels = PlayerPrefs.GetInt("levelsUnlocked");
             VictoryEvent();
             coinsManager.GuardarMonedas();
-            coinsManager.TotalMonedas();
+            
             if (numberOfUnlockedLevels <= levelToUnlock)
             {
                 PlayerPrefs.SetInt("levelsUnlocked", numberOfUnlockedLevels + 1);
@@ -64,6 +64,7 @@ public class Goal : MonoBehaviour
         GameManager.Singleton.charController.rotationSpeed = 0;
         textGoal.gameObject.SetActive(true);
         yield return new WaitForSeconds(5);
+        GameManager.Singleton.ad.LoadInerstitialAd();
         CambiarEscena(escena);
     }
 }

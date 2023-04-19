@@ -45,6 +45,9 @@ public class GameManager
 
     public DamagePlayer damagePlayer{ get {return _damagePlayer;}}
 
+    private ADSample _ad;
+    public ADSample ad { get { return _ad; } }
+
     //Accesor a la instancia del Singleton
     public static GameManager Singleton
     {
@@ -66,6 +69,7 @@ public class GameManager
                 instance._damagePlayer = GameObject.FindObjectOfType<DamagePlayer>();
                 instance._cameraFollow = GameObject.FindObjectOfType<CameraFollow>();
                 instance._reloj = GameObject.FindObjectOfType<Reloj>();
+                instance._ad = GameObject.FindObjectOfType<ADSample>();
             }
             
             
@@ -87,6 +91,7 @@ public class GameManager
         _sounds = null;
         _damagePlayer = null;
         _reloj = null;
+        _ad = null;
     }
 
     

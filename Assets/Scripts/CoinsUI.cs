@@ -19,13 +19,20 @@ public class CoinsUI : MonoBehaviour
         if (SceneManager.GetActiveScene().name.Equals("MainMenu"))
         {
             monedasActualesTexto.text = GameManager.Singleton.coins.TotalMonedas().ToString();
-           
+            
+
         }
     }
     public void ActualizarNumeroMonedas()
     {
-        monedasActualesTexto.text = GameManager.Singleton.coins.monedasActuales.ToString();
+        monedasActualesTexto.text = GameManager.Singleton.coins.monedasAContar.ToString();
         
         
+    }
+    public void ActualizarMonedasMainMenu()
+    {
+        monedasActualesTexto.text = PlayerPrefs.GetInt("MonedasTotales", 0).ToString();
+
+
     }
 }
