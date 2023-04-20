@@ -3414,7 +3414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monedasAContar: 0
-  monedasActuales: 0
+  monedasActuales: 333
 --- !u!4 &649204890
 Transform:
   m_ObjectHideFlags: 0

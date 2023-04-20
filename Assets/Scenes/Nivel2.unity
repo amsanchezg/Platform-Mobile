@@ -19687,6 +19687,66 @@ PrefabInstance:
       propertyPath: m_text
       value: Nivel 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2673549598300385693, guid: 38d0fab9c52f0d24088a5e5bc428155e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0909215
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673549598300385693, guid: 38d0fab9c52f0d24088a5e5bc428155e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0909215
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673549598300385693, guid: 38d0fab9c52f0d24088a5e5bc428155e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0909215
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673549598300385693, guid: 38d0fab9c52f0d24088a5e5bc428155e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 139.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673549598300385693, guid: 38d0fab9c52f0d24088a5e5bc428155e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -14.609
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673549598300385693, guid: 38d0fab9c52f0d24088a5e5bc428155e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -656.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696877962976274166, guid: 38d0fab9c52f0d24088a5e5bc428155e,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696877962976274166, guid: 38d0fab9c52f0d24088a5e5bc428155e,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696877962976274166, guid: 38d0fab9c52f0d24088a5e5bc428155e,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696877962976274166, guid: 38d0fab9c52f0d24088a5e5bc428155e,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678117643379619199, guid: 38d0fab9c52f0d24088a5e5bc428155e,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418446750535564224, guid: 38d0fab9c52f0d24088a5e5bc428155e,
+        type: 3}
+      propertyPath: m_IgnoreReversedGraphics
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7320566200142055556, guid: 38d0fab9c52f0d24088a5e5bc428155e,
         type: 3}
       propertyPath: m_Pivot.x
