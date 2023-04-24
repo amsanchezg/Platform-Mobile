@@ -7,8 +7,9 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 public class CoinsUI : MonoBehaviour
 {
-    
+
     public Text monedasActualesTexto;
+    public Text monedasContadas;
     
     GameManager _gameManager;
 
@@ -25,7 +26,8 @@ public class CoinsUI : MonoBehaviour
     }
     public void ActualizarNumeroMonedas()
     {
-        monedasActualesTexto.text = GameManager.Singleton.coins.monedasAContar.ToString();
+        monedasActualesTexto.text = GameManager.Singleton.coins.monedasActuales.ToString();
+        monedasContadas.text = GameManager.Singleton.coins.monedasAContar.ToString();
         
         
     }

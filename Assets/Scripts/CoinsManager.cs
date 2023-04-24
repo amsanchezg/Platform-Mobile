@@ -14,7 +14,7 @@ public class CoinsManager : MonoBehaviour
 
     private void Awake()
     {
-        monedasActuales = PlayerPrefs.GetInt("MonedasTotales", TotalMonedas());
+        monedasActuales = PlayerPrefs.GetInt("MonedasActuales");
         
     }
 
@@ -37,6 +37,7 @@ public class CoinsManager : MonoBehaviour
     {
         
        return monedasActuales = PlayerPrefs.GetInt("MonedasTotales");
+        monedasActuales = PlayerPrefs.GetInt("MonedasActuales");
 
     }
 
@@ -45,8 +46,10 @@ public class CoinsManager : MonoBehaviour
         if (monedasActuales >= monedasAQuitar)
         {
             monedasActuales -= monedasAQuitar;
-            GameManager.Singleton.coinsUI.ActualizarMonedasMainMenu();
-            //PlayerPrefs.SetInt("MonedasActuales", PlayerPrefs.GetInt("MonedasTotales", 0) - monedasAQuitar);
+            Debug.Log("Restando");
+            GameManager.Singleton.coinsUI.ActualizarNumeroMonedas();
+            
+            PlayerPrefs.SetInt("MonedasActuales", PlayerPrefs.GetInt("MonedasTotales", 0) - monedasAQuitar);
             return true;
             
         }

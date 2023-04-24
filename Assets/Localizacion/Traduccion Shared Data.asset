@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Traduccion Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Traduccion
+  m_TableCollectionNameGuidString: 86d5deca1c8a0db4db9e53bda76d42d4
+  m_Entries:
+  - m_Id: 112833196032
+    m_Key: TextoSelector
+    m_Metadata:
+      m_Items: []
+  - m_Id: 174669819904
+    m_Key: TextoEditar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 213089644544
+    m_Key: TextoEquipar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3433044242432
+    m_Key: TextoVida1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3580243341312
+    m_Key: TextoVida2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3930283175936
+    m_Key: TextoLose1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3958464704512
+    m_Key: TextoLose2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4240791695360
+    m_Key: TextoWin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7054800580608
+    m_Key: Si
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7120605016064
+    m_Key: TextoContinuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7486948110336
+    m_Key: TextoIrAlMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7533425192960
+    m_Key: TextoPausa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12736606105600
+    m_Key: TextoNivel1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12777748033536
+    m_Key: TextoNivel2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12794084847616
+    m_Key: TextoNivel3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12809658298368
+    m_Key: TextoNivel4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12832705998848
+    m_Key: TextoNivel5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12856500285440
+    m_Key: TextoNivel6
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1682062392473

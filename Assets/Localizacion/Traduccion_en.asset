@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Traduccion_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 86d5deca1c8a0db4db9e53bda76d42d4, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 112833196032
+    m_Localized: Level Selector
+    m_Metadata:
+      m_Items: []
+  - m_Id: 174669819904
+    m_Localized: Edit Character
+    m_Metadata:
+      m_Items: []
+  - m_Id: 213089644544
+    m_Localized: Equip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3433044242432
+    m_Localized: I see you're about to lose
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3580243341312
+    m_Localized: Do you want an extra life?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3958464704512
+    m_Localized: Do you want to try again?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3930283175936
+    m_Localized: YOU LOST
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4240791695360
+    m_Localized: YOU MADE IT!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7054800580608
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7120605016064
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7486948110336
+    m_Localized: "Go To \nMain Menu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7533425192960
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12736606105600
+    m_Localized: Level 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12777748033536
+    m_Localized: Level 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12794084847616
+    m_Localized: Level 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12809658298368
+    m_Localized: Level 4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12832705998848
+    m_Localized: Level 5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12856500285440
+    m_Localized: Level 6
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1
