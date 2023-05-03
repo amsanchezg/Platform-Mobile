@@ -14,7 +14,7 @@ public class CoinsManager : MonoBehaviour
 
     private void Awake()
     {
-        monedasActuales = PlayerPrefs.GetInt("MonedasActuales");
+        TotalMonedas();
         
     }
 
@@ -22,9 +22,9 @@ public class CoinsManager : MonoBehaviour
    {
         monedasAContar += valorMonedas;
         GameManager.Singleton.coinsUI.ActualizarNumeroMonedas();
-        
-        
-   }
+        monedasActuales = PlayerPrefs.GetInt("MonedasActuales");
+
+    }
 
     public void GuardarMonedas()
     {
@@ -37,7 +37,7 @@ public class CoinsManager : MonoBehaviour
     {
         
        return monedasActuales = PlayerPrefs.GetInt("MonedasTotales");
-        monedasActuales = PlayerPrefs.GetInt("MonedasActuales");
+       
 
     }
 

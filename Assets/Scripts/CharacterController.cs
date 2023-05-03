@@ -20,6 +20,9 @@ public class CharacterController : MonoBehaviour
     [SerializeField] public GameObject lianaToGet3;
     [SerializeField] public bool estaEnLiana;
     [SerializeField] public bool lianaCooldown;
+    Transform currentSwing;
+    ConstantForce constantForce;
+    public Vector3 velocidadCuandoAgarroLiana;
     [SerializeField] bool canMove;
     [SerializeField] public Animator anim;
     [SerializeField] Camera mainCamera;
@@ -28,6 +31,7 @@ public class CharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        constantForce = GetComponent<ConstantForce>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
@@ -41,7 +45,7 @@ public class CharacterController : MonoBehaviour
         
         print(isGrounded);
         Move();
-        Liana();
+        //Liana();
 
         if (isGrounded)
         {
@@ -62,19 +66,13 @@ public class CharacterController : MonoBehaviour
     {
         if (estaEnLiana)
         {
-            speed = 0;
-            rotationSpeed = 0;
+            
             if ((SimpleInput.GetButtonDown("Jump")))
             {
-                speed = 6;
-                rotationSpeed = 1000;
-                Debug.Log("salta puerco");
-                rb.constraints = RigidbodyConstraints.None;
-                rb.useGravity = true;
-                rb.AddForce(transform.forward * 20 * jump * 5);
-                StartCoroutine(CooldownLiana());
                 estaEnLiana = false;
-            }   
+                rb.velocity = currentSwing.GetComponent<Rigidbody>().velocity;
+                rb.useGravity = true;
+            }
         }
     }
 
@@ -146,11 +144,15 @@ public class CharacterController : MonoBehaviour
            
             anim.SetBool("isInRope", true);
             rb.useGravity = false;
-            rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
-            //El jugador se hace hijo del objeto con el que choca, en este caso, la liana
-            gameObject.transform.parent = lianaToGet.transform;
-            gameObject.transform.position = lianaToGet.transform.position;
-            gameObject.transform.rotation = lianaToGet.transform.rotation;
+            rb.isKinematic = true;
+            //rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+            ////El jugador se hace hijo del objeto con el que choca, en este caso, la liana
+            //gameObject.transform.parent = lianaToGet.transform;
+            //gameObject.transform.position = lianaToGet.transform.position;
+            //gameObject.transform.rotation = lianaToGet.transform.rotation;
+            other.GetComponent<Rigidbody>().velocity = velocidadCuandoAgarroLiana;
+            currentSwing = other.transform;
+            constantForce.enabled = false;
             estaEnLiana = true;
            
         }
@@ -158,12 +160,12 @@ public class CharacterController : MonoBehaviour
         {
 
             anim.SetBool("isInRope", true);
-            rb.useGravity = false;
-            rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
-            //El jugador se hace hijo del objeto con el que choca, en este caso, la liana
-            gameObject.transform.parent = lianaToGet2.transform;
-            gameObject.transform.position = lianaToGet2.transform.position;
-            gameObject.transform.rotation = lianaToGet2.transform.rotation;
+            //rb.useGravity = false;
+            //rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+            ////El jugador se hace hijo del objeto con el que choca, en este caso, la liana
+            //gameObject.transform.parent = lianaToGet2.transform;
+            //gameObject.transform.position = lianaToGet2.transform.position;
+            //gameObject.transform.rotation = lianaToGet2.transform.rotation;
             estaEnLiana = true;
 
         }
@@ -171,12 +173,12 @@ public class CharacterController : MonoBehaviour
         {
 
             anim.SetBool("isInRope", true);
-            rb.useGravity = false;
-            rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
-            //El jugador se hace hijo del objeto con el que choca, en este caso, la liana
-            gameObject.transform.parent = lianaToGet3.transform;
-            gameObject.transform.position = lianaToGet3.transform.position;
-            gameObject.transform.rotation = lianaToGet3.transform.rotation;
+            //rb.useGravity = false;
+            //rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+            ////El jugador se hace hijo del objeto con el que choca, en este caso, la liana
+            //gameObject.transform.parent = lianaToGet3.transform;
+            //gameObject.transform.position = lianaToGet3.transform.position;
+            //gameObject.transform.rotation = lianaToGet3.transform.rotation;
             estaEnLiana = true;
 
         }
@@ -204,7 +206,7 @@ public class CharacterController : MonoBehaviour
     {
         anim.SetTrigger("Hurt");
         speed = 0;
-        rb.AddForce(-transform.forward * 7 * (5 * 3) * 2);
+        rb.AddForce(-transform.forward * 7 * (5 * 2) * 2);
         rb.velocity = Vector3.up * jump / 2;
         yield return new WaitForSeconds(1f);
         speed = 6;
