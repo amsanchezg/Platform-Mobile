@@ -26,10 +26,15 @@ public class CoinsUI : MonoBehaviour
     }
     public void ActualizarNumeroMonedas()
     {
-        monedasActualesTexto.text = GameManager.Singleton.coins.monedasActuales.ToString();
+        monedasActualesTexto.text = CoinsManager.monedasActuales.ToString();
+        //monedasContadas.text = GameManager.Singleton.coins.monedasAContar.ToString();
+        
+        
+    }
+
+    public void ActualizarNumeroMonedasInGame()
+    {
         monedasContadas.text = GameManager.Singleton.coins.monedasAContar.ToString();
-        
-        
     }
     public void ActualizarMonedasMainMenu()
     {

@@ -16,8 +16,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] public float playerHeight;
     [SerializeField] public GameObject colliderPersonaje;
     [SerializeField] public GameObject lianaToGet;
-    [SerializeField] public GameObject lianaToGet2;
-    [SerializeField] public GameObject lianaToGet3;
+
     [SerializeField] public bool estaEnLiana;
     [SerializeField] public bool lianaCooldown;
     Transform currentSwing;
@@ -27,7 +26,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] public Animator anim;
     [SerializeField] Camera mainCamera;
     [SerializeField] Event liana;
-
+    public Collider UltimaLianaCollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,24 +56,27 @@ public class CharacterController : MonoBehaviour
             anim.SetBool("isGrounded", false);
         }
 
-
-
-        
-    }
-
-    public void Liana()
-    {
         if (estaEnLiana)
         {
-            
             if ((SimpleInput.GetButtonDown("Jump")))
             {
                 estaEnLiana = false;
-                rb.velocity = currentSwing.GetComponent<Rigidbody>().velocity;
+                Debug.Log("salte de la liana");
                 rb.useGravity = true;
+                rb.isKinematic = false;
+                transform.parent = null;
+                canMove = true;
+                anim.Play("Salto");
+                anim.SetBool("isInRope", false);
+                StartCoroutine(CooldownLiana());               
             }
         }
+
+        
+
     }
+
+ 
 
     void Move()
     {
@@ -111,6 +113,11 @@ public class CharacterController : MonoBehaviour
                 GameManager.Singleton.Sounds.JumpSound();
             }
         }
+        //else if (!canMove)
+        //{
+            
+        //    canJump = false;
+        //}
     }
 
     public void DamageImpulse()
@@ -141,47 +148,32 @@ public class CharacterController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Liana") && !lianaCooldown)
         {
+
+            if (estaEnLiana == false)
+            {
+                Debug.Log("holasss");
+                anim.SetBool("isInRope", true);
+                rb.useGravity = false;
+                rb.isKinematic = true;
+                //rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+                ////El jugador se hace hijo del objeto con el que choca, en este caso, la liana
+                gameObject.transform.parent = lianaToGet.transform;
+                gameObject.transform.position = lianaToGet.transform.position;
+                //gameObject.transform.rotation = lianaToGet.transform.rotation;
+                //other.GetComponent<Rigidbody>().velocity = velocidadCuandoAgarroLiana;
+                currentSwing = other.transform;
+                constantForce.enabled = false;
+                estaEnLiana = true;
+                canMove = false;
+
+              
+                UltimaLianaCollider = other;
+                other.enabled = false;
+               
+            }
            
-            anim.SetBool("isInRope", true);
-            rb.useGravity = false;
-            rb.isKinematic = true;
-            //rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
-            ////El jugador se hace hijo del objeto con el que choca, en este caso, la liana
-            //gameObject.transform.parent = lianaToGet.transform;
-            //gameObject.transform.position = lianaToGet.transform.position;
-            //gameObject.transform.rotation = lianaToGet.transform.rotation;
-            other.GetComponent<Rigidbody>().velocity = velocidadCuandoAgarroLiana;
-            currentSwing = other.transform;
-            constantForce.enabled = false;
-            estaEnLiana = true;
-           
         }
-        if (other.gameObject.CompareTag("Liana2") && !lianaCooldown)
-        {
-
-            anim.SetBool("isInRope", true);
-            //rb.useGravity = false;
-            //rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
-            ////El jugador se hace hijo del objeto con el que choca, en este caso, la liana
-            //gameObject.transform.parent = lianaToGet2.transform;
-            //gameObject.transform.position = lianaToGet2.transform.position;
-            //gameObject.transform.rotation = lianaToGet2.transform.rotation;
-            estaEnLiana = true;
-
-        }
-        if (other.gameObject.CompareTag("Liana3") && !lianaCooldown)
-        {
-
-            anim.SetBool("isInRope", true);
-            //rb.useGravity = false;
-            //rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
-            ////El jugador se hace hijo del objeto con el que choca, en este caso, la liana
-            //gameObject.transform.parent = lianaToGet3.transform;
-            //gameObject.transform.position = lianaToGet3.transform.position;
-            //gameObject.transform.rotation = lianaToGet3.transform.rotation;
-            estaEnLiana = true;
-
-        }
+       
     }
 
     private void OnTriggerExit(Collider other)
@@ -197,9 +189,12 @@ public class CharacterController : MonoBehaviour
 
     IEnumerator CooldownLiana()
     {
-        lianaCooldown = true;
+
+        yield return new WaitForSeconds(0.01f);
+        rb.AddForce(Vector3.up * 300);
         yield return new WaitForSeconds(1.5f);
-        lianaCooldown = false;
+        UltimaLianaCollider.enabled = true;
+        UltimaLianaCollider = null;
     }
 
     IEnumerator DamagePlayerImpulse()
