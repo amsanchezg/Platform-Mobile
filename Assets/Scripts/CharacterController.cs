@@ -15,9 +15,6 @@ public class CharacterController : MonoBehaviour
     [SerializeField] public Collider collider;
     [SerializeField] public float playerHeight;
     [SerializeField] public GameObject colliderPersonaje;
-    [SerializeField] public GameObject lianaToGet;
-    [SerializeField] public GameObject lianaToGet2;
-    [SerializeField] public GameObject lianaToGet3;
     [SerializeField] public bool estaEnLiana;
     [SerializeField] public bool lianaCooldown;
     Transform currentSwing;
@@ -28,6 +25,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] Camera mainCamera;
     [SerializeField] Event liana;
     public Collider UltimaLianaCollider;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -158,11 +156,12 @@ public class CharacterController : MonoBehaviour
                 rb.isKinematic = true;
                 //rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
                 ////El jugador se hace hijo del objeto con el que choca, en este caso, la liana
-                gameObject.transform.parent = lianaToGet.transform;
-                gameObject.transform.position = lianaToGet.transform.position;
+               
                 //gameObject.transform.rotation = lianaToGet.transform.rotation;
                 //other.GetComponent<Rigidbody>().velocity = velocidadCuandoAgarroLiana;
                 currentSwing = other.transform;
+                gameObject.transform.parent = currentSwing.transform;
+                gameObject.transform.position = currentSwing.transform.position;
                 constantForce.enabled = false;
                 estaEnLiana = true;
                 canMove = false;
@@ -175,60 +174,60 @@ public class CharacterController : MonoBehaviour
            
         }
 
-        if (other.gameObject.CompareTag("Liana2") && !lianaCooldown)
-        {
+        //if (other.gameObject.CompareTag("Liana2") && !lianaCooldown)
+        //{
 
-            if (estaEnLiana == false)
-            {
-                Debug.Log("holasss");
-                anim.SetBool("isInRope", true);
-                rb.useGravity = false;
-                rb.isKinematic = true;
-                //rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
-                ////El jugador se hace hijo del objeto con el que choca, en este caso, la liana
-                gameObject.transform.parent = lianaToGet2.transform;
-                gameObject.transform.position = lianaToGet2.transform.position;
-                //gameObject.transform.rotation = lianaToGet.transform.rotation;
-                //other.GetComponent<Rigidbody>().velocity = velocidadCuandoAgarroLiana;
-                currentSwing = other.transform;
-                constantForce.enabled = false;
-                estaEnLiana = true;
-                canMove = false;
-
-
-                UltimaLianaCollider = other;
-                other.enabled = false;
-
-            }
-
-        }
-        if (other.gameObject.CompareTag("Liana3") && !lianaCooldown)
-        {
-
-            if (estaEnLiana == false)
-            {
-                Debug.Log("holasss");
-                anim.SetBool("isInRope", true);
-                rb.useGravity = false;
-                rb.isKinematic = true;
-                //rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
-                ////El jugador se hace hijo del objeto con el que choca, en este caso, la liana
-                gameObject.transform.parent = lianaToGet3.transform;
-                gameObject.transform.position = lianaToGet3.transform.position;
-                //gameObject.transform.rotation = lianaToGet.transform.rotation;
-                //other.GetComponent<Rigidbody>().velocity = velocidadCuandoAgarroLiana;
-                currentSwing = other.transform;
-                constantForce.enabled = false;
-                estaEnLiana = true;
-                canMove = false;
+        //    if (estaEnLiana == false)
+        //    {
+        //        Debug.Log("holasss");
+        //        anim.SetBool("isInRope", true);
+        //        rb.useGravity = false;
+        //        rb.isKinematic = true;
+        //        //rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+        //        ////El jugador se hace hijo del objeto con el que choca, en este caso, la liana
+        //        gameObject.transform.parent = lianaToGet2.transform;
+        //        gameObject.transform.position = lianaToGet2.transform.position;
+        //        //gameObject.transform.rotation = lianaToGet.transform.rotation;
+        //        //other.GetComponent<Rigidbody>().velocity = velocidadCuandoAgarroLiana;
+        //        currentSwing = other.transform;
+        //        constantForce.enabled = false;
+        //        estaEnLiana = true;
+        //        canMove = false;
 
 
-                UltimaLianaCollider = other;
-                other.enabled = false;
+        //        UltimaLianaCollider = other;
+        //        other.enabled = false;
 
-            }
+        //    }
 
-        }
+        //}
+        //if (other.gameObject.CompareTag("Liana3") && !lianaCooldown)
+        //{
+
+        //    if (estaEnLiana == false)
+        //    {
+        //        Debug.Log("holasss");
+        //        anim.SetBool("isInRope", true);
+        //        rb.useGravity = false;
+        //        rb.isKinematic = true;
+        //        //rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+        //        ////El jugador se hace hijo del objeto con el que choca, en este caso, la liana
+        //        gameObject.transform.parent = lianaToGet3.transform;
+        //        gameObject.transform.position = lianaToGet3.transform.position;
+        //        //gameObject.transform.rotation = lianaToGet.transform.rotation;
+        //        //other.GetComponent<Rigidbody>().velocity = velocidadCuandoAgarroLiana;
+        //        currentSwing = other.transform;
+        //        constantForce.enabled = false;
+        //        estaEnLiana = true;
+        //        canMove = false;
+
+
+        //        UltimaLianaCollider = other;
+        //        other.enabled = false;
+
+        //    }
+
+        //}
 
     }
 

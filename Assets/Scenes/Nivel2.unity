@@ -16958,7 +16958,7 @@ PrefabInstance:
     - target: {fileID: 2397174685168135284, guid: 8cb5775267b7ed34e87b0171e408a634,
         type: 3}
       propertyPath: m_TagString
-      value: Liana2
+      value: Liana
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cb5775267b7ed34e87b0171e408a634, type: 3}
@@ -25377,6 +25377,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 18.951748, y: 17.270977, z: 4.630637}
   m_Center: {x: -9.531935, y: -80.68928, z: 10.55}
+--- !u!65 &1503106213
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503106206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1545486, y: 4.7135, z: 10.095707}
+  m_Center: {x: -12.734394, y: -67.39482, z: 5.5823407}
+--- !u!65 &1503106214
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503106206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.680958, y: 4.7135, z: 8.226922}
+  m_Center: {x: -16.66733, y: -67.39482, z: 4.647948}
 --- !u!4 &1505424249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5203433069778979109, guid: 459dc88f5c27c6e4db26c3c543c642da,
@@ -28742,7 +28768,7 @@ PrefabInstance:
     - target: {fileID: 2397174685168135284, guid: 8cb5775267b7ed34e87b0171e408a634,
         type: 3}
       propertyPath: m_TagString
-      value: Liana3
+      value: Liana
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cb5775267b7ed34e87b0171e408a634, type: 3}

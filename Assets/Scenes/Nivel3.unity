@@ -10742,12 +10742,12 @@ PrefabInstance:
         type: 3}
       propertyPath: lianaToGet
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1070478116}
     - target: {fileID: 5214743325485484097, guid: 6fec1163157ae9344a279d5c413c7f61,
         type: 3}
       propertyPath: lianaToGet2
       value: 
-      objectReference: {fileID: 807625687}
+      objectReference: {fileID: 603001350}
     - target: {fileID: 5214743325485484097, guid: 6fec1163157ae9344a279d5c413c7f61,
         type: 3}
       propertyPath: lianaToGet3
@@ -13280,17 +13280,17 @@ PrefabInstance:
     - target: {fileID: 2397174683741293670, guid: 8cb5775267b7ed34e87b0171e408a634,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -76.76
+      value: -74.9
       objectReference: {fileID: 0}
     - target: {fileID: 2397174683741293670, guid: 8cb5775267b7ed34e87b0171e408a634,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.76
+      value: 23.26
       objectReference: {fileID: 0}
     - target: {fileID: 2397174683741293670, guid: 8cb5775267b7ed34e87b0171e408a634,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -153.17
+      value: -153.35
       objectReference: {fileID: 0}
     - target: {fileID: 2397174683741293670, guid: 8cb5775267b7ed34e87b0171e408a634,
         type: 3}
@@ -13330,16 +13330,10 @@ PrefabInstance:
     - target: {fileID: 2397174685168135284, guid: 8cb5775267b7ed34e87b0171e408a634,
         type: 3}
       propertyPath: m_TagString
-      value: Liana2
+      value: Liana
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cb5775267b7ed34e87b0171e408a634, type: 3}
---- !u!1 &807625687 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2397174684259074509, guid: 8cb5775267b7ed34e87b0171e408a634,
-    type: 3}
-  m_PrefabInstance: {fileID: 807625686}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &811978495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16610,6 +16604,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1147166924977798910, guid: 654993861c23e1441994cd95525da8ac,
     type: 3}
   m_PrefabInstance: {fileID: 1056725533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1070478116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2397174684259074509, guid: 8cb5775267b7ed34e87b0171e408a634,
+    type: 3}
+  m_PrefabInstance: {fileID: 807625686}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1081571191
 PrefabInstance:
@@ -22922,7 +22922,7 @@ PrefabInstance:
     - target: {fileID: 2397174685168135284, guid: 8cb5775267b7ed34e87b0171e408a634,
         type: 3}
       propertyPath: m_TagString
-      value: Liana3
+      value: Liana
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cb5775267b7ed34e87b0171e408a634, type: 3}
