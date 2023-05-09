@@ -18,18 +18,18 @@ public class CharacterController : MonoBehaviour
     [SerializeField] public bool estaEnLiana;
     [SerializeField] public bool lianaCooldown;
     Transform currentSwing;
-    ConstantForce constantForce;
+    
     public Vector3 velocidadCuandoAgarroLiana;
     [SerializeField] bool canMove;
     [SerializeField] public Animator anim;
     [SerializeField] Camera mainCamera;
-    [SerializeField] Event liana;
+   
     public Collider UltimaLianaCollider;
     
     // Start is called before the first frame update
     void Start()
     {
-        constantForce = GetComponent<ConstantForce>();
+        
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
@@ -75,7 +75,7 @@ public class CharacterController : MonoBehaviour
 
     }
 
- 
+   
 
     void Move()
     {
@@ -150,6 +150,8 @@ public class CharacterController : MonoBehaviour
 
             if (estaEnLiana == false)
             {
+                estaEnLiana = true;
+                canMove = false;
                 Debug.Log("holasss");
                 anim.SetBool("isInRope", true);
                 rb.useGravity = false;
@@ -162,72 +164,12 @@ public class CharacterController : MonoBehaviour
                 currentSwing = other.transform;
                 gameObject.transform.parent = currentSwing.transform;
                 gameObject.transform.position = currentSwing.transform.position;
-                constantForce.enabled = false;
-                estaEnLiana = true;
-                canMove = false;
-
-              
                 UltimaLianaCollider = other;
                 other.enabled = false;
                
             }
            
         }
-
-        //if (other.gameObject.CompareTag("Liana2") && !lianaCooldown)
-        //{
-
-        //    if (estaEnLiana == false)
-        //    {
-        //        Debug.Log("holasss");
-        //        anim.SetBool("isInRope", true);
-        //        rb.useGravity = false;
-        //        rb.isKinematic = true;
-        //        //rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
-        //        ////El jugador se hace hijo del objeto con el que choca, en este caso, la liana
-        //        gameObject.transform.parent = lianaToGet2.transform;
-        //        gameObject.transform.position = lianaToGet2.transform.position;
-        //        //gameObject.transform.rotation = lianaToGet.transform.rotation;
-        //        //other.GetComponent<Rigidbody>().velocity = velocidadCuandoAgarroLiana;
-        //        currentSwing = other.transform;
-        //        constantForce.enabled = false;
-        //        estaEnLiana = true;
-        //        canMove = false;
-
-
-        //        UltimaLianaCollider = other;
-        //        other.enabled = false;
-
-        //    }
-
-        //}
-        //if (other.gameObject.CompareTag("Liana3") && !lianaCooldown)
-        //{
-
-        //    if (estaEnLiana == false)
-        //    {
-        //        Debug.Log("holasss");
-        //        anim.SetBool("isInRope", true);
-        //        rb.useGravity = false;
-        //        rb.isKinematic = true;
-        //        //rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
-        //        ////El jugador se hace hijo del objeto con el que choca, en este caso, la liana
-        //        gameObject.transform.parent = lianaToGet3.transform;
-        //        gameObject.transform.position = lianaToGet3.transform.position;
-        //        //gameObject.transform.rotation = lianaToGet.transform.rotation;
-        //        //other.GetComponent<Rigidbody>().velocity = velocidadCuandoAgarroLiana;
-        //        currentSwing = other.transform;
-        //        constantForce.enabled = false;
-        //        estaEnLiana = true;
-        //        canMove = false;
-
-
-        //        UltimaLianaCollider = other;
-        //        other.enabled = false;
-
-        //    }
-
-        //}
 
     }
 
