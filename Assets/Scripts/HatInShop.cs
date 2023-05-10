@@ -51,7 +51,7 @@ public class HatInShop : MonoBehaviour
         else
         {
             //compramos
-            if (FindObjectOfType<CoinsManager>().QuitarMonedas(hatInfo.hatPrice))
+            if (FindObjectOfType<NuevoCoinManager>().QuitarMonedas(hatInfo.hatPrice))
             {
                 
                 PlayerPrefs.SetInt(hatInfo.TheHatsID.ToString(), 1);

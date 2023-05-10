@@ -12,6 +12,12 @@ public class CollectingCoins : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            //PARA EL NUEVO SISTEMA DE CONTAR
+
+            NuevoCoinManager.LevelCoins++;
+
+            //FIN DEL NUEVO SISTEMA DE CONTAR;
+
             pickUp.Ocurred(this.gameObject);
             GameManager.Singleton.Sounds.CoinsSound();
             Instantiate(effect, transform.position, transform.rotation);

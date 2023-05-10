@@ -26,8 +26,7 @@ public class GameManager
 
     public CoinsManager coins{ get {return _coins;}}
 
-    private CoinsUI _coinsUI;
-    public CoinsUI coinsUI { get { return _coinsUI; } }
+   
 
     private UI _numberlifes;
 
@@ -62,7 +61,7 @@ public class GameManager
                 instance._playerLifes = GameObject.FindObjectOfType<PlayerLifes>();
                 instance._numberlifes = GameObject.FindObjectOfType<UI>();
                 instance._coins = GameObject.FindObjectOfType<CoinsManager>();
-                instance._coinsUI = GameObject.FindObjectOfType<CoinsUI>();
+                
                 instance._spawn = GameObject.FindObjectOfType<Spawn>();
                 instance._charController = GameObject.FindObjectOfType<CharacterController>();
                 instance._sounds = GameObject.FindObjectOfType<Sounds>();
@@ -84,7 +83,7 @@ public class GameManager
         instance = null;
         _playerLifes = null;
         _coins = null;
-        _coinsUI = null;
+       
         _numberlifes = null;
         _spawn = null;
         _charController = null;
