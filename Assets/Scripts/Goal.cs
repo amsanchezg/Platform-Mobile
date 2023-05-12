@@ -72,7 +72,7 @@ public class Goal : MonoBehaviour
         GameManager.Singleton.charController.rotationSpeed = 0;
         textGoal.gameObject.SetActive(true);
         yield return new WaitForSeconds(5);
-        //GameManager.Singleton.ad.LoadInerstitialAd();
+        GameManager.Singleton.ad.LoadInerstitialAd();
         CambiarEscena(escena);
     }
 }
