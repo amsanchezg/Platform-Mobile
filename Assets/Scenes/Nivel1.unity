@@ -13686,6 +13686,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 459dc88f5c27c6e4db26c3c543c642da, type: 3}
+--- !u!1 &1289913399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 306296716310965668, guid: 41d72855a328d3242ae69876ede88e88,
+    type: 3}
+  m_PrefabInstance: {fileID: 2635889907274592760}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1293324797
 GameObject:
   m_ObjectHideFlags: 0
@@ -14216,7 +14222,7 @@ PrefabInstance:
         type: 3}
       propertyPath: panel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1289913399}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96b0e040b1d9b6e4fa34bef2ad9a81cf, type: 3}
 --- !u!1001 &1351130600
@@ -20772,7 +20778,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasHUD
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5512877079749007887, guid: 41d72855a328d3242ae69876ede88e88, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 41d72855a328d3242ae69876ede88e88, type: 3}
 --- !u!23 &2671840548449116899
 MeshRenderer:
